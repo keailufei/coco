@@ -1,0 +1,86 @@
+define(["./relyOn/jquery", "./CompatibilityUtil", "./domUtil/DomUtilCore", "./EncodingUtil", "./ListUtil", "./StringUtil", "./TimeUtil", "./UrlUtil", "./XmlUtil"], function(canNotUseAsAParam, compatibilityUtil, domUtil, encodingUtil, listUtil, stringUtil, timeUtil, urlUtil, xmlUtil) {
+
+	//debugger
+	//debugger;
+
+	/**功能：删除dom节点或对象的指定属性
+	 * 入参：（dom节点或对象，属性名）
+	 * 作者：陈长安
+	 * 创建时间：2014-07-08
+	 * 修改时间：*/
+	function deleteOneAttribute(target, attName) {
+		//若属性不存在，运行完后也会返回true
+		delete target[attName];
+	}
+
+	/**功能：抛出一个异常（错误）：error
+	 * 入参：（错误信息）
+	 * 作者：陈长安
+	 * 创建时间：2014-07-09
+	 * 修改时间：*/
+	function throwOneError(errMessage) {
+		var err = new Error();
+		err.message = errMessage;
+		throw (err);
+	}
+
+	/**功能：安全返回数据类型：Javascript基本数据类型和内置对象
+	 * 入参：要检测的值
+	 * 返回值：返回字符串："undefined"、"number"、"boolean"、"string"、"function"、"regexp"、"array"、"date"、"error"
+	 * 作者：陈长安
+	 * 创建时间：2014-07-09
+	 * 修改时间：*/
+	function getTypeSting(o) {
+		//【知识讲解 begin】
+		//（1）typeof：不能判断出数组和null，而且对于通过new操作符生成的对象，也无法判断类型。
+		//（2）instanceof：因为在JavaScript中，所有对象都是object，也就是说new Number(2)或new String('hello')也是object，故无法判断
+		//（3）Object.prototype.toString：
+		//对任何变量会永远返回这样一个字符串"[object class]"，而这个class就是JavaScript内嵌对象的构造函数的名字。
+		//至于用户自定义的变量，则class等于object。
+		//因此通过Object.prototype.toString.apply(obj)可以准确的获取变量数据类型。
+		//通过Object.prototype.toString可以获得的数据类型包括：Date, Object, String, Number, Boolean, Regexp, Function, undefined, null, Math等。
+		//【知识讲解 end】
+
+		//获取对象的toString方法的引用
+		var _toString = Object.prototype.toString;
+		//列举基本数据类型和内置对象类型，可以进一步补充该数组的检测数据类型范围
+		var _type = {
+			"undefined" : "undefined",
+			"number" : "number",
+			"boolean" : "boolean",
+			"string" : "string",
+			"[object Function]" : "function",
+			"[object RegExp]" : "regexp",
+			"[object Array]" : "array",
+			"[object Date]" : "date",
+			"[object Error]" : "error",
+			"[object Math]" : "math"
+		};
+		return _type[ typeof o] || _type[_toString.call(o)] || ( o ? "object" : "null");
+	}
+
+	return {
+
+		FrameName : 'coco',
+		Author : 'chencha',
+		Version : '1.1',
+		Note : '本框架支持amd规范',
+		ToDo : "集成Jquery框架，支持coco框架的快速开发",
+
+		compatibilityUtil : compatibilityUtil,
+		domUtil : domUtil,
+		encodingUtil : encodingUtil,
+		listUtil : listUtil,
+		stringUtil : stringUtil,
+		timeUtil : timeUtil,
+		urlUtil : urlUtil,
+		xmlUtil : xmlUtil,
+		//jquery : jquery,
+		//$ : jquery,
+
+		deleteOneAttribute : deleteOneAttribute,
+		throwOneError : throwOneError,
+		getTypeSting : getTypeSting,
+
+	};
+});
