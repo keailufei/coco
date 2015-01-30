@@ -79,5 +79,5 @@ define({
 		var urlObj = URLUtil.getURLObject(url);
 		var res = urlObj[paramName];
 		return res;
-	},
+	}
 });
