@@ -1,3 +1,9 @@
+/**
+ * @fileoverview 字符串工具文件
+ * @author chencha
+ * @version 2.0
+ * @since 2015年1月30日
+ */
 define({
 
 	/** 返回去掉左右空格的字符串
