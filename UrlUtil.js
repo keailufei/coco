@@ -1,5 +1,5 @@
 /**
- * @fileoverview URL工具文件
+ * @file URL工具文件
  * @author chencha
  * @version 2.0
  * @since 2015年1月30日 14:07:09
