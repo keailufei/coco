@@ -31,15 +31,19 @@ define({
 	 * @param {Object} list 列表
 	 * @param {Object} propertyName 目标值与列表中vo比较哪个属性（可选）
 	 */
-	isInList: function(target, list, propertyName) {
+	isInList: function(target, list, propertyName,isPropertyOnlyForList) {
 		var myListUtil = this;
 		if (myListUtil.isListValid(list)) {
 			var length = list.length;
 			for (var i = 0; i < length; i++) {
 				var vo = list[i];
-				if (!!propertyName) {
-					var voValue = vo[propertyName];
-					var targetValue = target[propertyName];
+				if (!!propertyName) {//指明了属性
+					var voValue = vo[propertyName];					
+					if(isPropertyOnlyForList==true){
+						var targetValue = target;
+					}else{
+						var targetValue = target[propertyName];
+					}					
 				} else {
 					var voValue = vo;
 					var targetValue = target;
