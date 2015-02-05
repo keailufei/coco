@@ -2,13 +2,13 @@
 
 define(function() {
 
-	//·µ»Ø±êÌâĞĞ
+	//è¿”å›æ ‡é¢˜è¡Œ
 	function getHeadTr(headNames) {
-		var headTr = document.createElement('tr');//¶¨ÒåĞĞ
+		var headTr = document.createElement('tr');//å®šä¹‰è¡Œ
 		for ( var i = 0; i < headNames.length; i++) {
 			var headName = headNames[i];
 			var oneTh = document
-					.createElement('th');//¶¨Òå¡°±êÌâµ¥Ôª¸ñ¡±
+					.createElement('th');//å®šä¹‰â€œæ ‡é¢˜å•å…ƒæ ¼â€
 			var content = document
 					.createTextNode(headName);
 			oneTh.appendChild(content);
@@ -19,13 +19,7 @@ define(function() {
 
 
 	return {
-		getHeadTr : getHeadTr,
-		getSelectedIndex : getSelectedIndex,
-		replaceOptions : replaceOptions,
-		replaceOptionsToOne : replaceOptionsToOne,
-		removeOptionByIndex : removeOptionByIndex,
-		removeAllOptions : removeAllOptions,
-		addDefaultOption:addDefaultOption,
-		isValueExist:isValueExist
+		getHeadTr : getHeadTr
+	
 	};
 });
