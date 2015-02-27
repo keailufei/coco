@@ -59,6 +59,18 @@ define({
 		type = type || "locale"; //是否采取本地转换格式
 
 		return type === "locale" && str.toLocaleUpperCase() || str.toUpperCase(); //返回转换后的值
+	},
+	
+	/**清除字符串换行符
+	 * @param {String} str
+	 * @author chencha
+	 * @since 2015年2月27日 18:55:09
+	 */
+	removeLineBreak: function(str) {
+		var res = "",
+			len = 0;
+		res = str.replace(/\r\n/g, "\\n").replace(/\n/g, "");
+		return res;
 	}
 
 
