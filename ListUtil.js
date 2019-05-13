@@ -1,5 +1,5 @@
 define({
-
+//cca：测试git分支 in 2019年5月13日 21:29:20
 
 	/** 返回列表类对象是否有效（对象有效、有length属性、长度大于-1）
 	 * @author chencha
